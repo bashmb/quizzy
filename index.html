@@ -1,0 +1,56 @@
+<!-- This is the View -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Quizzy</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/jumbotron-narrow.css" rel="stylesheet">
+
+    <!-- jQuery inclusion -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <!-- <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+          </ul>
+        </nav> -->
+        <h3 class="text-muted">Quizzy</h3>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Question.</h1>
+        <p class="lead currentQ">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        <p><a class="btn btn-lg btn-success answer ansA" data-ans="a" href="#" role="button">Answer1</a>
+        <a class="btn btn-lg btn-success answer ansB" data-ans="b" href="#" role="button">Answer2</a>
+        <a class="btn btn-lg btn-success answer ansC" data-ans="c" href="#" role="button">Answer3</a>
+        <a class="btn btn-lg btn-success answer ansD" data-ans="d" href="#" role="button">Answer4</a></p>
+		
+		<div class="alert alert-info instruction" role="alert">Choose an answer.</div>
+        <div class="alert alert-success qCorrect" role="alert" style="display:none">Great job!</div>
+        <div class="alert alert-danger qIncorrect" role="alert" style="display:none">You answered incorrectly.</div>
+      </div>
+
+      
+
+      <footer class="footer">
+        <p>&copy; Bash 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+     <script src='questions.js'></script>    <script src='questionEngine.js'></script>
+  </body>
+</html>
