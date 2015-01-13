@@ -3,7 +3,6 @@
 var q = Quiz['q']
 
 var resetQuiz = function() {
-
 	hideAlerts()
 	$(".answer").removeClass("disabled")
 	$(".currentQ").text(questions[q]['qText'])
@@ -16,8 +15,6 @@ var resetQuiz = function() {
 var quizEngine = function(){
 
 	$(".answer").click(function(){
-		// check if disabled
-
 		if(Quiz.answerQuestion($(this).data('ans'), questions[q]['qCorrect'])){
 			hideAlerts()
 			// $(".answer").data('disabled', true);
@@ -28,6 +25,7 @@ var quizEngine = function(){
 		}
 		else {
 			hideAlerts()
+			$(".answer").addClass('disabled');
 			$(".qIncorrect").show()
 			$(".nextDiv").show()
 		}
