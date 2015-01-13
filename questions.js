@@ -1,4 +1,41 @@
 // This is the Model
+
+
+(function () {
+
+	window.Quiz = {
+		score: 0,
+		q:0
+	}
+
+	Quiz.answerQuestion = function (questionNum, answerIndex) {
+		if(questionNum === answerIndex){
+			Quiz['score'] += 1
+			return true
+		} else {
+			return false
+		}
+		// Maniuplate score
+		// True or false
+
+
+	}
+	Quiz.nextQuestion = function(){
+		$(".nextQ").click(function(){
+			if(q + 1 < questions.length){
+				q++
+				resetQuiz()
+			} else {
+				$(".jumbotron").hide()
+			}
+		})
+	}
+
+})()
+
+
+
+
 // this is the hardcoded quiz
 // it has questions, response options, and an indicator for the correct answer
 // structure:  array of hashes

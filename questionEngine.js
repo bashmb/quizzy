@@ -1,56 +1,45 @@
 // This is the Presenter
 
-// (function () {
+var q = Quiz['q']
 
-// 	window.Quiz = {
-// 		score: 1
-// 	}
+var resetQuiz = function() {
 
-// 	Quiz.answerQuestion = function (questionNum, answerIndex) {
-// 		// Maniuplate score
-// 		// True or false
-// 	}
-// })()
-
-var q = 0
-var score = 1
-var quizEngine = function(){
 	hideAlerts()
+	$(".answer").removeClass("disabled")
 	$(".currentQ").text(questions[q]['qText'])
 	$(".ansA").text(questions[q]['qAnswers']['a'])
 	$(".ansB").text(questions[q]['qAnswers']['b'])
 	$(".ansC").text(questions[q]['qAnswers']['c'])
 	$(".ansD").text(questions[q]['qAnswers']['d'])
-	
+}
+
+var quizEngine = function(){
 
 	$(".answer").click(function(){
-		if($(this).data('ans') === questions[q]['qCorrect']){
-				hideAlerts()
-				$(".score").text("Score: " + score )
-				$(".qCorrect").show()
-				$(".nextDiv").show()
-			}
-			else {
-				hideAlerts()
-				$(".qIncorrect").show()
-			}
-	})
-}
-	$(".nextQ").click(function(){
-		if(q + 1 < questions.length){
-			score ++ 
-			q ++
-			quizEngine()
-		} else {
-			$(".jumbotron").hide()
+		// check if disabled
+
+		if(Quiz.answerQuestion($(this).data('ans'), questions[q]['qCorrect'])){
+			hideAlerts()
+			// $(".answer").data('disabled', true);
+			$(".answer").addClass('disabled');
+			$(".score").text("Score: " + Quiz['score'] )
+			$(".qCorrect").show()
+			$(".nextDiv").show()
+		}
+		else {
+			hideAlerts()
+			$(".qIncorrect").show()
+			$(".nextDiv").show()
 		}
 	})
+}
 
-
+Quiz.nextQuestion()
 var hideAlerts = function(){
 			$(".instruction").hide()
 			$(".qCorrect").hide()
 			$(".qIncorrect").hide()
 			$(".nextDiv").hide()
 }
+resetQuiz()
 quizEngine()
