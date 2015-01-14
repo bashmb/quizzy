@@ -2,15 +2,18 @@
 
 var q = Quiz['q']
 
-var currentQ = []
 
 var resetQuiz = function() {
 	var qData = Quiz.createQuestion()
 	currentQ = qData
 	console.log(qData['qCorrectPosition'])
 	hideAlerts()
+	$(".flag").attr("src","img/" + qData['qState'].toLowerCase() + ".jpg")
 	$(".answer").removeClass("disabled")
-	$(".currentQ").text(qData['qState'])
+	$(".answer").removeClass("btn-success")
+	$(".answer").removeClass("btn-danger")				
+	$(".answer").addClass("btn-info")
+	$(".currentQ").text(qData['qState'] + "?")
 	$(".ans" + qData['qCorrectPosition']).text(qData['qCorrectCity'])
 	$(".ans" + qData['qOtherOrder'][0]).text(qData['qOthers'][0])
 	$(".ans" + qData['qOtherOrder'][1]).text(qData['qOthers'][1])
@@ -24,15 +27,20 @@ var quizEngine = function(){
 		if(Quiz.answerQuestion($(this).data('ans'), currentQ['qCorrectPosition'])){
 			hideAlerts()
 			// $(".answer").data('disabled', true);
+			$(".answer").removeClass("btn-info")
+			$(this).addClass("btn-success")
 			$(".answer").addClass('disabled');
 			$(".score").text("Score: " + Quiz['score'] )
-			$(".qCorrect").show()
+			$(".qCorrect").text(currentQ['randomCorrect']).show()
 			$(".nextDiv").show()
 		}
 		else {
 			hideAlerts()
+			$(".answer").removeClass("btn-info")
+			$(this).addClass("btn-danger")
+			$(".ans" + currentQ['qCorrectPosition']).addClass("btn-success")
 			$(".answer").addClass('disabled');
-			$(".qIncorrect").show()
+			$(".qIncorrect").text(currentQ['randomIncorrect']).show()
 			$(".nextDiv").show()
 		}
 	})
@@ -45,5 +53,16 @@ var hideAlerts = function(){
 			$(".qIncorrect").hide()
 			$(".nextDiv").hide()
 }
+
+var signin = function(){
+	 $("form.sign-in").submit(function(e) {
+    	e.preventDefault();
+    	name = $('[data-id="name"]').val()
+		$(".username").text(name)
+		$(".welcome").hide()
+		$(".game").show()
+	})
+}
 resetQuiz()
 quizEngine()
+signin()
