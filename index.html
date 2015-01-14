@@ -31,15 +31,15 @@
         </nav>
         <h3 class="text-muted">Quizzy</h3>
       </div>
-		<div class="well well-sm score" align="right" style="font-weight:900">Score: 0</div>
+		<div class="well well-sm" align="right" style="font-weight:900">Score: <span class="badge score">0</span></a></div>
 	  <!-- Welcome Jumbotron -->
 		<div class="jumbotron welcome">
 		<h1>Learn some capitols.</h1>
-      	<img src='img/alabama.jpg'>
+      	<!-- <img src='img/alabama.jpg'> -->
       	<img src='img/colorado.jpg'>
       	<img src='img/texas.jpg'>
       	<img src='img/new york.jpg'>
-      	<img src='img/florida.jpg'>
+      	<!-- <img src='img/florida.jpg'> -->
       	<br>
       	<br>
       	<form class='sign-in'>
@@ -47,12 +47,19 @@
       	 	<br>
       	 	<br>
       		<button id="signinBtn" type="submit" class="btn btn-success">THIS IS MY MOMENT</button>   
-        
+        </form>
+        <br>
+        <br>
+        	<button id="hiScores" type="submit" class="btn btn-warning">HI scores</button>  
       </div>
 
 	  <!-- End of Welcome Jumbotron -->
 		<!-- Start of Game Jumbotron -->
 	  <div class="jumbotron game" style="display:none">
+
+
+
+
       	<img class='flag' src='img/alabama.jpg'>
       	<br>
       	<br>
@@ -71,9 +78,31 @@
         <div class="nextDiv" style="display:none">
         	<button class="btn btn-info nextQ">Continue</button>
         </div>
+
       </div>
       <!-- End of Game Jumobtron -->
+	  <!-- High Score Jumbotron -->
+		<div class="jumbotron highScores" style="display:none">
+	      	<h1>Total Real Bros Know Capitols</h1>
+	      	<img class='flag' src='img/alabama.jpg'>
+	      	<br>
+	      	<span class='hi1'></span>
+	      	<span class='hi2'></span>
+	      	<span class='h13'></span>
+	      </div>
 
+	  <!-- End of High Score Jumbotron -->
+	  <!-- Start Final Score Jumbotron -->
+		<div class="jumbotron finalScore" style="display:none">
+	      	<h1>Final Score</h1>
+	      	<img class='flag' src='img/alabama.jpg'>
+	      	<br>
+	      	<span class='fScore'></span>
+
+	      </div>
+
+
+	  <!-- End Final Score Jumbotron -->
       
 
       <footer class="footer">

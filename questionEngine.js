@@ -4,8 +4,8 @@ var q = Quiz['q']
 
 
 var resetQuiz = function() {
-	var qData = Quiz.createQuestion()
-	currentQ = qData
+	qData = Quiz.createQuestion()
+
 	console.log(qData['qCorrectPosition'])
 	hideAlerts()
 	$(".flag").attr("src","img/" + qData['qState'].toLowerCase() + ".jpg")
@@ -24,23 +24,23 @@ var quizEngine = function(){
 
 	$(".answer").click(function(){
 
-		if(Quiz.answerQuestion($(this).data('ans'), currentQ['qCorrectPosition'])){
+		if(Quiz.answerQuestion($(this).data('ans'), qData['qCorrectPosition'])){
 			hideAlerts()
 			// $(".answer").data('disabled', true);
 			$(".answer").removeClass("btn-info")
 			$(this).addClass("btn-success")
 			$(".answer").addClass('disabled');
-			$(".score").text("Score: " + Quiz['score'] )
-			$(".qCorrect").text(currentQ['randomCorrect']).show()
+			$(".score").text( Quiz['score'] )
+			$(".qCorrect").text(qData['randomCorrect']).show()
 			$(".nextDiv").show()
 		}
 		else {
 			hideAlerts()
 			$(".answer").removeClass("btn-info")
 			$(this).addClass("btn-danger")
-			$(".ans" + currentQ['qCorrectPosition']).addClass("btn-success")
+			$(".ans" + qData['qCorrectPosition']).addClass("btn-success")
 			$(".answer").addClass('disabled');
-			$(".qIncorrect").text(currentQ['randomIncorrect']).show()
+			$(".qIncorrect").text(qData['randomIncorrect']).show()
 			$(".nextDiv").show()
 		}
 	})
@@ -60,9 +60,20 @@ var signin = function(){
     	name = $('[data-id="name"]').val()
 		$(".username").text(name)
 		$(".welcome").hide()
+		$(".highScores").hide()
 		$(".game").show()
 	})
 }
+
+
+$("#hiScores").click(function(){
+	$(".welcome").hide()
+	$(".game").hide()
+	$(".highScores").show()
+	$(".hi1").text("mike")
+
+})
+
 resetQuiz()
 quizEngine()
 signin()

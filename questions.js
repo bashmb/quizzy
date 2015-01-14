@@ -11,18 +11,25 @@
 	Quiz.answerQuestion = function (questionNum, answerIndex) {
 		if(questionNum === answerIndex){
 			Quiz['score'] += 1
+			// Quiz['q'] +=1
+			// var progVal = (Quiz.q + 1)/10
+			// $('.progress').css('width', progVal+'%').attr('aria-valuenow', Quiz.q)
+			// // $(".progress").attr("style","width: "+(Quiz.q/10) + "%")			
 			return true
 		} else {
 			return false
+
 		}
 	}
 	Quiz.nextQuestion = function(){
 		$(".nextQ").click(function(){
-			if(q + 1 < 100){
+			if(q + 1 < 10){
 				q++
 				resetQuiz()
 			} else {
 				$(".jumbotron").hide()
+				$(".fScore").text(Quiz.score + " out of 10")
+				$(".finalScore").show()
 			}
 		})
 	}

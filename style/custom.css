@@ -1,6 +1,7 @@
 @media (min-width: 768px) {
   .container {
     max-width: 1000px;
+
   }
 }
 
@@ -16,6 +17,10 @@ background-color: rgb(91, 164, 215);
 }
 
 .jumbotron{
-	min-height: 555px;
+	min-height: 580px;
 	background-color: #DEF2FF;
+
+}
+.alert{
+	font-size: 25px;
 }
