@@ -2,23 +2,26 @@
 
 var q = Quiz['q']
 
-var resetQuiz = function() {
+var currentQ = []
 
+var resetQuiz = function() {
+	var qData = Quiz.createQuestion()
+	currentQ = qData
+	console.log(qData['qCorrectPosition'])
 	hideAlerts()
 	$(".answer").removeClass("disabled")
-	$(".currentQ").text(questions[q]['qText'])
-	$(".ansA").text(questions[q]['qAnswers']['a'])
-	$(".ansB").text(questions[q]['qAnswers']['b'])
-	$(".ansC").text(questions[q]['qAnswers']['c'])
-	$(".ansD").text(questions[q]['qAnswers']['d'])
+	$(".currentQ").text(qData['qState'])
+	$(".ans" + qData['qCorrectPosition']).text(qData['qCorrectCity'])
+	$(".ans" + qData['qOtherOrder'][0]).text(qData['qOthers'][0])
+	$(".ans" + qData['qOtherOrder'][1]).text(qData['qOthers'][1])
+	$(".ans" + qData['qOtherOrder'][2]).text(qData['qOthers'][2])
 }
 
 var quizEngine = function(){
 
 	$(".answer").click(function(){
-		// check if disabled
 
-		if(Quiz.answerQuestion($(this).data('ans'), questions[q]['qCorrect'])){
+		if(Quiz.answerQuestion($(this).data('ans'), currentQ['qCorrectPosition'])){
 			hideAlerts()
 			// $(".answer").data('disabled', true);
 			$(".answer").addClass('disabled');
@@ -28,6 +31,7 @@ var quizEngine = function(){
 		}
 		else {
 			hideAlerts()
+			$(".answer").addClass('disabled');
 			$(".qIncorrect").show()
 			$(".nextDiv").show()
 		}

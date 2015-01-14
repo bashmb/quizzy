@@ -18,13 +18,37 @@
 	}
 	Quiz.nextQuestion = function(){
 		$(".nextQ").click(function(){
-			if(q + 1 < questions.length){
+			if(q + 1 < 100){
 				q++
 				resetQuiz()
 			} else {
 				$(".jumbotron").hide()
 			}
 		})
+	}
+
+	Quiz.createQuestion = function(){
+		var random = Math.floor(Math.random()*stateCapitols.length)
+		var newQ = {
+			qNum:1,
+			qState: stateCapitols[random][0],
+			qCorrectPosition: Math.floor(Math.random()*3),
+			qCorrectCity: stateCapitols[random][1],
+			qOthers: [stateCapitols[random][2],stateCapitols[random][3],stateCapitols[random][4]],
+			qOtherOrder: [2,3,4]
+		}
+		 // newQ['qOtherOrder'] = [1,2,3]
+		if(newQ['qCorrectPosition'] === 0){
+				newQ['qOtherOrder'] = [1,2,3]
+			} else if(newQ['qCorrectPosition'] === 1) {
+				newQ['qOtherOrder'] = [0,2,3]
+			} else if(newQ['qCorrectPosition'] === 2){
+				newQ['qOtherOrder'] = [0,1,3]
+			} else if(newQ['qCorrectPosition'] === 3){
+				newQ['qOtherOrder'] = [0,1,2]
+			}
+				
+		return newQ
 	}
 
 })()
@@ -72,11 +96,11 @@ var questions = [
 ]
 
 var stateCapitols = [
-	{"Alabama":["Montgomery", "Huntsville", "Birmingham", "Mobile"]},
-	{"Alaska":["Juneau", "Fairbanks", "Anchorage", "Sitka"]},
-	{"Arizona":["Phoenix", "Tucson", "Scottsdale", "Sedona"]},
-	{"Arkansas":["Little Rock", "Fayetteville", "Hot Springs", "Fort Smith"]},
-	{"California":["Sacremento", "Los Angeles", "San Francisco", "San Diego"]}
+	["Alabama","Montgomery", "Huntsville", "Birmingham", "Mobile"],
+	["Alaska","Juneau", "Fairbanks", "Anchorage", "Sitka"],
+	["Arizona","Phoenix", "Tucson", "Scottsdale", "Sedona"],
+	["Arkansas","Little Rock", "Fayetteville", "Hot Springs", "Fort Smith"],
+	["California","Sacremento", "Los Angeles", "San Francisco", "San Diego"]
 ]
 	// {"Colorado":["Denver"]},
 	// {"Connecticut":["Hartford"]},
