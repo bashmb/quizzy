@@ -1,0 +1,27 @@
+@media (min-width: 768px) {
+  .container {
+    max-width: 1000px;
+
+  }
+}
+
+input[type="text"]
+{
+    font-size:65px;
+ 	padding: 20px 3px;
+ 	line-height: 75px;
+ 	width: 400px;
+}
+
+.well{
+background-color: rgb(91, 164, 215);
+}
+
+.jumbotron{
+	min-height: 580px;
+	background-color: #DEF2FF;
+
+}
+.alert{
+	font-size: 25px;
+}

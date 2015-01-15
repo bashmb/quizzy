@@ -3,13 +3,14 @@
 <html lang="en">
   <head>
 
-    <title>Quizzy</title>
+    <title>Bro'd Out State Capitols</title>
 
     <!-- Bootstrap core CSS -->
     <link href="style/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="style/jumbotron-narrow.css" rel="stylesheet">
+    <link href="style/custom.css" rel="stylesheet">
 
     <!-- jQuery inclusion -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -22,34 +23,87 @@
 
 
 
-        <!-- <nav>
+        <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+
+            <h3 class="text-muted username"></h3>
           </ul>
-        </nav> -->
-        <h3 class="text-muted">Quizzy</h3>
+        </nav>
+        <h3 class="text-muted">Bro'd Out State Capitols</h3>
       </div>
-<div class="well well-sm score" align="right" style="font-weight:900">Score: 0</div>
-      <div class="jumbotron">
-        <h1>Question.</h1>
-        <p class="lead currentQ">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success answer ansA" data-ans="a" href="#" role="button">Answer1</a>
-        <a class="btn btn-lg btn-success answer ansB" data-ans="b" href="#" role="button">Answer2</a>
-        <a class="btn btn-lg btn-success answer ansC" data-ans="c" href="#" role="button">Answer3</a>
-        <a class="btn btn-lg btn-success answer ansD" data-ans="d" href="#" role="button">Answer4</a></p>
+		<div class="well well-sm" align="right" style="font-weight:900">Score: <span class="badge score">0</span></a></div>
+	  <!-- Welcome Jumbotron -->
+		<div class="jumbotron welcome">
+		<h1>Learn some capitols.</h1>
+      	<!-- <img src='img/alabama.jpg'> -->
+      	<img src='img/colorado.jpg'>
+      	<img src='img/texas.jpg'>
+      	<img src='img/new york.jpg'>
+      	<!-- <img src='img/florida.jpg'> -->
+      	<br>
+      	<br>
+      	<form class='sign-in'>
+      	 	<input type="text" placeholder="Name, bruh?" data-id='name'>
+      	 	<br>
+      	 	<br>
+      		<button id="signinBtn" type="submit" class="btn btn-success">THIS IS MY MOMENT</button>   
+        </form>
+        <br>
+        <br>
+        	<button id="hiScores" type="submit" class="btn btn-warning">HI scores</button>  
+      </div>
+
+	  <!-- End of Welcome Jumbotron -->
+		<!-- Start of Game Jumbotron -->
+	  <div class="jumbotron game" style="display:none">
+
+
+
+
+      	<img class='flag' src='img/alabama.jpg'>
+      	<br>
+      	<br>
+        <p class="lead">What is the capitol of</p>        
+        <h1 class="currentQ">Question, bro.</h1>
+        <p><a class="btn btn-lg btn-success answer ans0" data-ans="0" href="#" role="button">Answer1</a>
+        <a class="btn btn-lg btn-success answer ans1" data-ans="1" href="#" role="button">Answer2</a>
+        <a class="btn btn-lg btn-success answer ans2" data-ans="2" href="#" role="button">Answer3</a>
+        <a class="btn btn-lg btn-success answer ans3" data-ans="3" href="#" role="button">Answer4</a></p>
 		
 		<div class="alert alert-info instruction" role="alert">Choose an answer.</div>
-        <div class="alert alert-success qCorrect" role="alert" style="display:none">Great job! 
+        <div class="alert alert-success qCorrect" role="alert" style="display:none">Cool 
         </div>
-        <div class="alert alert-danger qIncorrect" role="alert" style="display:none">You answered incorrectly.</div>
+        <div class="alert alert-danger qIncorrect" role="alert" style="display:none">Why'd you get it wrong, bro?</div>
 
         <div class="nextDiv" style="display:none">
         	<button class="btn btn-info nextQ">Continue</button>
         </div>
-      </div>
 
+      </div>
+      <!-- End of Game Jumobtron -->
+	  <!-- High Score Jumbotron -->
+		<div class="jumbotron highScores" style="display:none">
+	      	<h1>Total Real Bros Know Capitols</h1>
+	      	<img class='flag' src='img/alabama.jpg'>
+	      	<br>
+	      	<span class='hi1'></span>
+	      	<span class='hi2'></span>
+	      	<span class='h13'></span>
+	      </div>
+
+	  <!-- End of High Score Jumbotron -->
+	  <!-- Start Final Score Jumbotron -->
+		<div class="jumbotron finalScore" style="display:none">
+	      	<h1>Final Score</h1>
+	      	<img class='flag' src='img/alabama.jpg'>
+	      	<br>
+	      	<h3><span class='fScore'></span></h3>
+
+	      	<button id="restart" type="submit" class="btn btn-warning">Start Over</button>  
+	      </div>
+
+
+	  <!-- End Final Score Jumbotron -->
       
 
       <footer class="footer">
